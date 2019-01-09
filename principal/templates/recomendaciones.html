@@ -1,0 +1,18 @@
+<form action="/recommended-movies/" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    	
+    <input type="submit" value="Submit">
+   
+</form>
+
+Resultados:
+
+<ul>
+{% for movie in movies %}
+    <li>{{movie}}</li>
+    
+{% empty %}
+    	No existe el user
+{% endfor %}
+</ul>

@@ -1,0 +1,18 @@
+<form action="/similar-movies/" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    	
+    <input type="submit" value="Submit">
+   
+</form>
+
+Películas similares para {{movie}}:
+
+<ul>
+{% for movie in movies %}
+    <li>{{movie}}</li>
+    
+{% empty %}
+    	No existe la película
+{% endfor %}
+</ul>
